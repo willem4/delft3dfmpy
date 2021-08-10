@@ -13,7 +13,7 @@ class OSM:
     OpenStreetMap model
     """
 
-    def __init__(self, extent_file=None, data_columns=None, proj_crs = None, logger=logging):
+    def __init__(self, extent_file=None, proj_crs = None, logger=logging):
 
         # Read geometry to clip data
         self.logger = logger
@@ -33,7 +33,7 @@ class OSM:
             self.clipgeo = None
 
 
-
+    def add_data(self, data_columns=None):
         # Get required columns of OSM data
         self.data_columns = data_columns
 
@@ -43,10 +43,10 @@ class OSM:
 
         # FIXME: ensure that all required parameterised properties are provided. I can imagine this is a matter of making
         # several parameterised profiles for different profile types (e.g. trapezoidal, rectangular, circular, etc.)
-        self.profiles = ExtendedGeoDataFrame(geotype=LineString, required_columns=self.get_columns('crosssections'))
+        # self.profiles = ExtendedGeoDataFrame(geotype=LineString, required_columns=self.get_columns('crosssections'))
 
         # FIXME: ensure that all culvert types and properties can be handled. We probably have circular and box-shaped culverts, sometimes with multiple openings
-        self.culverts = ExtendedGeoDataFrame(geotype=LineString, required_columns=self.get_columns('culverts'))
+        # self.culverts = ExtendedGeoDataFrame(geotype=LineString, required_columns=self.get_columns('culverts'))
 
         # # FIXME: not sure what laterals in this context mean, but I don't think we need it at this stage.
         # self.laterals = ExtendedGeoDataFrame(geotype=Point, required_columns=[
