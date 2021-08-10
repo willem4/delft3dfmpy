@@ -2,6 +2,8 @@
 
 import os
 import configparser, json
+import sys
+sys.path.append(r'..')
 from delft3dfmpy import OSM, DFlowFMModel
 from delft3dfmpy.datamodels.common import ExtendedGeoDataFrame
 from delft3dfmpy.core.logging import initialize_logger
@@ -24,7 +26,7 @@ config.read(fn_ini)
 # Path to data
 path = config.get('input', 'DataPath')
 
-# Extend of study area
+# Extent of study area
 fn_pilot_area = os.path.join(path, config.get('input', 'studyareafile'))
 
 logger.info(f'All data is expected to be in {path}')
@@ -36,8 +38,10 @@ required_columns_data = config._sections['datacolumns']
 parameters = config._sections['parameter']
 
 # Initialise osm data
-osm = OSM(fn_pilot_area, required_columns_data,parameters['projectedcrs'], logger=logger)
+osm = OSM(fn_pilot_area, parameters['projectedcrs'], logger=logger)
 
+# Add osm data
+osm.add_data(required_columns_data)
 # print(type(osm))
 
 # Id column
