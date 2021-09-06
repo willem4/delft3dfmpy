@@ -1,5 +1,5 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis version="3.18.1-Zürich" saveUserFull="Willem Ottevanger" projectname="" saveUser="ottevan" saveDateTime="2021-09-06T10:16:17">
+<qgis version="3.18.1-Zürich" saveUserFull="Willem Ottevanger" projectname="" saveUser="ottevan" saveDateTime="2021-09-06T10:26:13">
   <homePath path=""/>
   <title></title>
   <autotransaction active="0"/>
@@ -20,7 +20,7 @@
   </projectCrs>
   <layer-tree-group>
     <customproperties/>
-    <layer-tree-layer checked="Qt::Checked" legend_split_behavior="0" patch_size="-1,-1" id="profile_12bace7f_8339_4587_ba90_8c9e0bf77855" source="./profile.geojson" providerKey="ogr" expanded="1" legend_exp="" name="profile">
+    <layer-tree-layer checked="Qt::Checked" legend_split_behavior="0" patch_size="-1,-1" id="profiles_01ba8b73_acde_4956_b96e_5cff0e3ad25d" source="./profiles.geojson" providerKey="ogr" expanded="1" legend_exp="" name="profiles profile">
       <customproperties/>
     </layer-tree-layer>
     <layer-tree-layer checked="Qt::Checked" legend_split_behavior="0" patch_size="-1,-1" id="locations_56ca8bef_e798_4684_a2e3_255e630d2f96" source="./locations.geojson" providerKey="ogr" expanded="1" legend_exp="" name="locations">
@@ -39,15 +39,15 @@
       <item>land_5b228922_a761_4769_8fd5_fe21849c0869</item>
       <item>waterways_3f618673_835a_4d10_91b0_44f8d0da18a0</item>
       <item>locations_56ca8bef_e798_4684_a2e3_255e630d2f96</item>
-      <item>profile_12bace7f_8339_4587_ba90_8c9e0bf77855</item>
       <item>Esri_Imagery_deb2442a_09f2_4286_80fc_6022af929be2</item>
+      <item>profiles_01ba8b73_acde_4956_b96e_5cff0e3ad25d</item>
     </custom-order>
   </layer-tree-group>
   <snapping-settings tolerance="12" self-snapping="0" maxScale="0" type="1" mode="2" intersection-snapping="0" minScale="0" unit="1" scaleDependencyMode="0" enabled="0">
     <individual-layer-settings>
+      <layer-setting tolerance="12" units="1" maxScale="0" type="1" minScale="0" id="profiles_01ba8b73_acde_4956_b96e_5cff0e3ad25d" enabled="0"/>
       <layer-setting tolerance="12" units="1" maxScale="0" type="1" minScale="0" id="land_5b228922_a761_4769_8fd5_fe21849c0869" enabled="0"/>
       <layer-setting tolerance="12" units="1" maxScale="0" type="1" minScale="0" id="waterways_3f618673_835a_4d10_91b0_44f8d0da18a0" enabled="0"/>
-      <layer-setting tolerance="12" units="1" maxScale="0" type="1" minScale="0" id="profile_12bace7f_8339_4587_ba90_8c9e0bf77855" enabled="0"/>
       <layer-setting tolerance="12" units="1" maxScale="0" type="1" minScale="0" id="locations_56ca8bef_e798_4684_a2e3_255e630d2f96" enabled="0"/>
     </individual-layer-settings>
   </snapping-settings>
@@ -80,9 +80,9 @@
   </mapcanvas>
   <projectModels/>
   <legend updateDrawingOrder="true">
-    <legendlayer checked="Qt::Checked" showFeatureCount="0" open="true" drawingOrder="-1" name="profile">
+    <legendlayer checked="Qt::Checked" showFeatureCount="0" open="true" drawingOrder="-1" name="profiles profile">
       <filegroup open="true" hidden="false">
-        <legendlayerfile layerid="profile_12bace7f_8339_4587_ba90_8c9e0bf77855" isInOverview="0" visible="1"/>
+        <legendlayerfile layerid="profiles_01ba8b73_acde_4956_b96e_5cff0e3ad25d" isInOverview="0" visible="1"/>
       </filegroup>
     </legendlayer>
     <legendlayer checked="Qt::Checked" showFeatureCount="0" open="true" drawingOrder="-1" name="locations">
@@ -1051,12 +1051,12 @@ def my_form_open(dialog, layer, feature):
         <xmax>5.00063979596237207</xmax>
         <ymax>51.95732707743250245</ymax>
       </extent>
-      <id>profile_12bace7f_8339_4587_ba90_8c9e0bf77855</id>
-      <datasource>./profile.geojson</datasource>
+      <id>profiles_01ba8b73_acde_4956_b96e_5cff0e3ad25d</id>
+      <datasource>./profiles.geojson</datasource>
       <keywordList>
         <value></value>
       </keywordList>
-      <layername>profile</layername>
+      <layername>profiles profile</layername>
       <srs>
         <spatialrefsys>
           <wkt>GEOGCRS["WGS 84",DATUM["World Geodetic System 1984",ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,2],AXIS["geodetic latitude (Lat)",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],USAGE[SCOPE["unknown"],AREA["World"],BBOX[-90,-180,90,180]],ID["EPSG",4326]]</wkt>
@@ -1196,9 +1196,6 @@ def my_form_open(dialog, layer, feature):
         <sizescale/>
       </renderer-v2>
       <customproperties>
-        <property key="dualview/previewExpressions">
-          <value>"code"</value>
-        </property>
         <property value="0" key="embeddedWidgets/count"/>
         <property key="variableNames"/>
         <property key="variableValues"/>
@@ -1313,7 +1310,7 @@ def my_form_open(dialog, layer, feature):
           </editWidget>
         </field>
         <field configurationFlags="None" name="waterwayid">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option/>
             </config>
@@ -1348,13 +1345,13 @@ def my_form_open(dialog, layer, feature):
       <attributeactions>
         <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
       </attributeactions>
-      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="&quot;waterwayid&quot;" sortOrder="1">
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
         <columns>
-          <column type="field" hidden="0" name="dwarsprofi" width="123"/>
+          <column type="field" hidden="0" name="dwarsprofi" width="-1"/>
           <column type="field" hidden="0" name="code" width="-1"/>
           <column type="field" hidden="0" name="profielcod" width="-1"/>
-          <column type="actions" hidden="1" width="-1"/>
           <column type="field" hidden="0" name="waterwayid" width="-1"/>
+          <column type="actions" hidden="1" width="-1"/>
         </columns>
       </attributetableconfig>
       <conditionalstyles>
@@ -1389,11 +1386,13 @@ def my_form_open(dialog, layer, feature):
         <field editable="1" name="code"/>
         <field editable="1" name="dwarsprofi"/>
         <field editable="1" name="profielcod"/>
+        <field editable="1" name="waterwayid"/>
       </editable>
       <labelOnTop>
         <field labelOnTop="0" name="code"/>
         <field labelOnTop="0" name="dwarsprofi"/>
         <field labelOnTop="0" name="profielcod"/>
+        <field labelOnTop="0" name="waterwayid"/>
       </labelOnTop>
       <dataDefinedFieldProperties/>
       <widgets/>
@@ -1794,8 +1793,8 @@ def my_form_open(dialog, layer, feature):
     <layer id="land_5b228922_a761_4769_8fd5_fe21849c0869"/>
     <layer id="waterways_3f618673_835a_4d10_91b0_44f8d0da18a0"/>
     <layer id="locations_56ca8bef_e798_4684_a2e3_255e630d2f96"/>
-    <layer id="profile_12bace7f_8339_4587_ba90_8c9e0bf77855"/>
     <layer id="Esri_Imagery_deb2442a_09f2_4286_80fc_6022af929be2"/>
+    <layer id="profiles_01ba8b73_acde_4956_b96e_5cff0e3ad25d"/>
   </layerorder>
   <properties>
     <CopyrightLabel>
