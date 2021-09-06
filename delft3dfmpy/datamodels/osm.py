@@ -40,7 +40,7 @@ class OSM:
         # Create standard dataframe for network, cross sections, orifices, weirs
         # FIXME: check available columns and required columns for the OSM data, and apply these here
         self.branches = ExtendedGeoDataFrame(geotype=LineString, required_columns=self.get_columns('branches'))
-
+        
         # FIXME: ensure that all required parameterised properties are provided. I can imagine this is a matter of making
         # several parameterised profiles for different profile types (e.g. trapezoidal, rectangular, circular, etc.)
         # self.profiles = ExtendedGeoDataFrame(geotype=LineString, required_columns=self.get_columns('crosssections'))
