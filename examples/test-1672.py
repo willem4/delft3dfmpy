@@ -207,6 +207,7 @@ fm_data.branches.plot(ax=ax, label='Channel')
 ax.legend()
 
 fig.tight_layout()
+plt.savefig('input.png')
 
 
 # ### Generate the D-HYDRO FM schematisation
@@ -234,8 +235,6 @@ fig.tight_layout()
 # 
 # Note that orifices do not yet have an appropriate/definitive definition in HYDAMO. To be able to use it, we now use a separate GML-definition ('onderspuier") but possibly this will be integrated in the definition for weirs. To be continued.
 # 
-
-# In[45]:
 
 
 dfmmodel = DFlowFMModel()
@@ -281,7 +280,7 @@ mesh.generate_within_polygon(fm_data.clipgeo, cellsize=cellsize, rotation=0)
 # mesh.altitude_from_raster(rasterpath)
 
 # The full DEM is not added to this notebook. Instead a constant bed level is used
-mesh.altitude_constant(1.5)
+mesh.altitude_constant(1.5, where='node')
 
 # Add to schematisation
 dfmmodel.network.add_mesh2d(mesh)
@@ -311,9 +310,9 @@ dfmmodel.network.add_mesh2d(mesh)
 # 
 # Note that for each option a maximum link length can be chosen, to prevent creating long (and perhaps unrealistic) links.
 
-# del dfmmodel.network.links1d2d.faces2d[:]
-# del dfmmodel.network.links1d2d.nodes1d[:]
-# dfmmodel.network.links1d2d.generate_1d_to_2d(max_distance=50)
+del dfmmodel.network.links1d2d.faces2d[:]
+del dfmmodel.network.links1d2d.nodes1d[:]
+dfmmodel.network.links1d2d.generate_1d_to_2d(max_distance=50)
 
 
 fig, ax = plt.subplots(figsize=(13, 10))
@@ -338,7 +337,7 @@ achtergrond = plt.imread(fn_background)
 ax.imshow(achtergrond, extent=(95032.2496803394606104,145054.9318180521368049,423138.1493090987205505,501148.8388533919351175), interpolation='lanczos')
 
 ax.legend()
-
+plt.savefig('location.png')
 # ax.set_xlim(140900, 141300)
 #ax.set_ylim(393400, 393750);
 
@@ -346,9 +345,6 @@ ax.legend()
 # ### Boundary conditions for FM
 # 
 # Add boundary conditions to external forcings from a SOBEK time series.
-
-# In[ ]:
-
 
 # fn_bcs = os.path.join(data_path, 'sobekdata', 'boundaryconditions.csv')
 # bcs = pd.read_csv(fn_bcs, sep=';', index_col=0)
@@ -442,9 +438,9 @@ dfmmodel.external_forcings.set_initial_waterdepth(0.5)
 
 # Runtime and output settings
 # for FM model
-dfmmodel.mdu_parameters['refdate'] = 20000101
+dfmmodel.mdu_parameters['refdate'] = 16720101
 dfmmodel.mdu_parameters['tstart'] = 0.0 * 3600
-dfmmodel.mdu_parameters['tstop'] = 24.0 * 1 * 3600
+dfmmodel.mdu_parameters['tstop'] = 24.0 * 5 * 3600
 dfmmodel.mdu_parameters['hisinterval'] = '120. 0. 0.'
 dfmmodel.mdu_parameters['cflmax'] = 0.7
 
