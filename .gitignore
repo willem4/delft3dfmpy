@@ -21,3 +21,11 @@ notebooks/tempgrid_net.nc
 data/testmodel_fmonly/*
 notebooks/unstruc.dia
 .vscode/launch.json
+data/1672/temp/
+data/1672/umap/overview.qgs~
+examples/3di2dfm_converter.py
+examples/helper_functions.py
+examples/input.png
+examples/mesh.png
+modellen/
+notebooks/.ipynb_checkpoints/
