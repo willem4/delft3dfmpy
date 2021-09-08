@@ -248,7 +248,7 @@ dfmmodel.network.generate_1dnetwork(one_d_mesh_distance=float(parameters['grid1d
 
 # # Set a default cross section
 default = dfmmodel.crosssections.add_rectangle_definition(
-    height=5.0, width=5.0, closed=False, roughnesstype='Strickler', roughnessvalue=30)
+    height=5.0, width=50.0, closed=False, roughnesstype='Strickler', roughnessvalue=30)
 dfmmodel.crosssections.set_default_definition(definition=default, shift=-5.0)
 
 
@@ -312,7 +312,7 @@ dfmmodel.network.add_mesh2d(mesh)
 
 del dfmmodel.network.links1d2d.faces2d[:]
 del dfmmodel.network.links1d2d.nodes1d[:]
-dfmmodel.network.links1d2d.generate_1d_to_2d(max_distance=50)
+dfmmodel.network.links1d2d.generate_1d_to_2d(max_distance=float(parameters['grid1d2dmaxdistance']))
 
 
 fig, ax = plt.subplots(figsize=(13, 10))
