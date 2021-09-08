@@ -320,15 +320,15 @@ ax.set_aspect(1.0)
 
 segments = dfmmodel.network.mesh2d.get_segments()
 ax.add_collection(LineCollection(segments, color='0.3', linewidths=0.5, label='2D-mesh'))
+segments1d = dfmmodel.network.mesh1d.get_segments()
+ax.add_collection(LineCollection(segments1d, color='r', linewidths=0.5, label='1D-mesh'))
 
-# links = dfmmodel.network.links1d2d.get_1d2dlinks()
-# ax.add_collection(LineCollection(links, color='k', linewidths=0.5))
-# ax.plot(links[:, :, 0].ravel(), links[:, :, 1].ravel(), color='k', marker='.', ls='', label='1D2D-links')
+links = dfmmodel.network.links1d2d.get_1d2dlinks()
+ax.add_collection(LineCollection(links, color='k', linewidths=0.5))
+ax.plot(links[:, :, 0].ravel(), links[:, :, 1].ravel(), color='k', marker='.', ls='', label='1D2D-links')
 
 # for i, p in enumerate([buffered_branch]):
 #     ax.plot(*p.exterior.xy, color='C3', lw=1.5, zorder=10, alpha=0.8, label='Refinement buffer' if i==0 else None)
-
-# hydamo.branches.plot(ax=ax, color='C0', lw=2.5, alpha=0.8, label='1D-mesh')
 
 ax.set_xlim(95032.2496803394606104,145054.9318180521368049)
 ax.set_ylim(423138.1493090987205505,446548.8388533919351175)
@@ -337,9 +337,7 @@ achtergrond = plt.imread(fn_background)
 ax.imshow(achtergrond, extent=(95032.2496803394606104,145054.9318180521368049,423138.1493090987205505,501148.8388533919351175), interpolation='lanczos')
 
 ax.legend()
-plt.savefig('location.png')
-# ax.set_xlim(140900, 141300)
-#ax.set_ylim(393400, 393750);
+plt.savefig('mesh.png')
 
 
 # ### Boundary conditions for FM
