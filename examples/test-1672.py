@@ -7,7 +7,7 @@ sys.path.append(r'../')
 # Importing relevant classes from delft3dfmpy
 import delft3dfmpy
 
-from delft3dfmpy import TDi2FM, DFlowFMModel, Rectangular, DFlowFMWriter
+from delft3dfmpy import Minimal2FM, DFlowFMModel, Rectangular, DFlowFMWriter
 from delft3dfmpy.datamodels.common import ExtendedGeoDataFrame
 from delft3dfmpy.core.logging import initialize_logger
 
@@ -33,7 +33,7 @@ def translate_data(config, topic):
     correct projection.
     """    
     # Generate empty to inquire to required data columns
-    fm_dummy = TDi2FM()
+    fm_dummy = Minimal2FM()
 
     # Read source data 
     umap = os.path.join(data_path, config.get(topic, 'file'))
@@ -89,6 +89,7 @@ parameters = config._sections['parameter']
 
 fn_study_area = translate_data(config, 'clipgeo')
 fn_branches = translate_data(config, 'branches')
+fn_crosssections = translate_data(config, 'crosssections')
 
 # fn_crosssections = os.path.join(data_path, 'umap', 'profiles.geojson')
 # fn_profiles = os.path.join(data_path, 'gml', 'NormGeparametriseerdProfiel.gml')
@@ -103,11 +104,12 @@ fn_branches = translate_data(config, 'branches')
 # fn_control = os.path.join(data_path, 'gml', 'sturing.gml')
 
 
-fm_data = TDi2FM(extent_file=fn_study_area)
+fm_data = Minimal2FM(extent_file=fn_study_area)
 
 
 # # Branches
-fm_data.branches.read_shp(fn_branches, index_col='code', clip=fm_data.clipgeo)
+fm_data.branches.read_shp(fn_branches, id_col='id', clip=fm_data.clipgeo)
+fm_data.crosssections.read_shp(fn_branches, id_col='id', clip=fm_data.clipgeo)
 #osm.branches['ruwheidstypecode'] = 4
 
 # read cross sections from GML
@@ -248,9 +250,9 @@ dfmmodel.network.generate_1dnetwork(one_d_mesh_distance=float(parameters['grid1d
 
 # # Set a default cross section
 default = dfmmodel.crosssections.add_rectangle_definition(
-    height=5.0, width=50.0, closed=False, roughnesstype='Strickler', roughnessvalue=30)
-dfmmodel.crosssections.set_default_definition(definition=default, shift=-5.0)
-
+    height=float(parameters['defaultdepth']), width=float(parameters['defaultwidth']), closed=False, 
+    roughnesstype=parameters['roughnesstype'], roughnessvalue=float(parameters['roughness1d']))
+dfmmodel.crosssections.set_default_definition(definition=default, shift=-float(parameters['defaultdepth']))
 
 # #### Add a 2D mesh
 
@@ -280,7 +282,7 @@ mesh.generate_within_polygon(fm_data.clipgeo, cellsize=cellsize, rotation=0)
 # mesh.altitude_from_raster(rasterpath)
 
 # The full DEM is not added to this notebook. Instead a constant bed level is used
-mesh.altitude_constant(1.5, where='node')
+mesh.altitude_constant(0.5, where='node')
 
 # Add to schematisation
 dfmmodel.network.add_mesh2d(mesh)
