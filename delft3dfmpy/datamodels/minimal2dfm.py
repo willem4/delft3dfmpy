@@ -22,7 +22,7 @@ class Minimal2FM:
             
         # Create standard dataframe for network, crosssections, structures
         self.branches = ExtendedGeoDataFrame(geotype=LineString, required_columns=[
-            'id',
+            'code',
             'geometry'
         ])
         

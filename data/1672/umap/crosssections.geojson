@@ -3,10 +3,10 @@
 "name": "crosssections",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "id": 1, "width": 50.0, "depth": 5.0, "comment": "Oude Zederik 2" }, "geometry": { "type": "Point", "coordinates": [ 4.975701533105671, 51.959268210852244 ] } },
-{ "type": "Feature", "properties": { "id": 2, "width": 70.0, "depth": 4.0, "comment": "Oude Zederik 1" }, "geometry": { "type": "Point", "coordinates": [ 4.999695690283279, 51.923833131046905 ] } },
-{ "type": "Feature", "properties": { "id": 3, "width": 40.0, "depth": 4.0, "comment": "Merwedekanaal" }, "geometry": { "type": "Point", "coordinates": [ 5.007958578847754, 51.922561917421596 ] } },
-{ "type": "Feature", "properties": { "id": 4, "width": 45.0, "depth": 3.0, "comment": "Linge" }, "geometry": { "type": "Point", "coordinates": [ 5.171945136511937, 51.963558556837661 ] } },
-{ "type": "Feature", "properties": { "id": 6, "width": 50.0, "depth": 4.0, "comment": "Giessen" }, "geometry": { "type": "Point", "coordinates": [ 4.929421412059456, 51.886133701971488 ] } }
+{ "type": "Feature", "properties": { "id": 1, "width": 50.0, "depth": 5.0, "comment": "Oude Zederik 2" }, "geometry": { "type": "Point", "coordinates": [ 4.975473111907368, 51.958076448078451 ] } },
+{ "type": "Feature", "properties": { "id": 2, "width": 70.0, "depth": 4.0, "comment": "Oude Zederik 1" }, "geometry": { "type": "Point", "coordinates": [ 5.000505095833766, 51.923892719185609 ] } },
+{ "type": "Feature", "properties": { "id": 3, "width": 40.0, "depth": 4.0, "comment": "Merwedekanaal" }, "geometry": { "type": "Point", "coordinates": [ 5.008226725471839, 51.92065509698363 ] } },
+{ "type": "Feature", "properties": { "id": 4, "width": 45.0, "depth": 3.0, "comment": "Linge" }, "geometry": { "type": "Point", "coordinates": [ 5.174894749376897, 51.961175031290153 ] } },
+{ "type": "Feature", "properties": { "id": 6, "width": 50.0, "depth": 4.0, "comment": "Giessen" }, "geometry": { "type": "Point", "coordinates": [ 4.930911115526609, 51.884663861217255 ] } }
 ]
 }
