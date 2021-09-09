@@ -40,7 +40,7 @@ def translate_data(config, topic):
     umap_df = gpd.read_file(umap)
     make_path(os.path.join(data_path, 'temp'))
     fn = os.path.join(data_path, 'temp', topic+'.shp')
-    gdf = umap_df.to_crs(config.get('parameter', 'projectedcrs'))
+    gdf = umap_df.to_crs(config.get('parameters', 'projectedcrs'))
 
     # Perform mapping
     attributes = getattr(fm_dummy, topic)
@@ -85,7 +85,7 @@ config.read(fn_ini)
 data_path = config.get('input', 'DataPath')
 
 # Get parameters
-parameters = config._sections['parameter']
+parameters = config._sections['parameters']
 
 fn_study_area = translate_data(config, 'clipgeo')
 fn_branches = translate_data(config, 'branches')
@@ -108,21 +108,14 @@ fm_data = Minimal2FM(extent_file=fn_study_area)
 
 
 # # Branches
-fm_data.branches.read_shp(fn_branches, id_col='id', clip=fm_data.clipgeo)
-fm_data.crosssections.read_shp(fn_branches, id_col='id', clip=fm_data.clipgeo)
-#osm.branches['ruwheidstypecode'] = 4
+fm_data.branches.read_shp(fn_branches, index_col='code', clip=fm_data.clipgeo)
+fm_data.crosssections.read_shp(fn_crosssections, index_col='id', id_col='id', clip=fm_data.clipgeo)
 
-# read cross sections from GML
-# hydamo.crosssections.read_gml(fn_crosssections, 
-#                               column_mapping={'ruwheidswaardelaag':'ruwheidswaarde'} ,
-#                               index_col='profielcode' ,
-#                               groupby_column='profielcode' , 
-#                               order_column='codevolgnummer')
-
-# hydamo.crosssections.snap_to_branch(hydamo.branches, snap_method='intersecting')
-# hydamo.crosssections.dropna(axis=0, inplace=True, subset=['branch_offset'])
-# hydamo.crosssections.drop('code', axis=1, inplace=True)
-# hydamo.crosssections.rename(columns={'profielcode': 'code'}, inplace=True)
+#fm_data.crosssections.snap_to_branch(fm_data.branches, snap_method='intersecting')
+fm_data.crosssections.snap_to_branch(fm_data.branches, snap_method='overal', maxdist=float(parameters['crosssectionsnapdistance']))
+fm_data.crosssections.dropna(axis=0, inplace=True, subset=['branch_offset'])
+#fm_data.crosssections.drop('code', axis=1, inplace=True)
+#fm_data.crosssections.rename(columns={'profielcode': 'code'}, inplace=True)
 
 # hydamo.parametrised_profiles.read_gml(fn_profiles, column_mapping={'ruwheidswaardelaag': 'ruwheidswaarde'})
 # hydamo.parametrised_profiles.snap_to_branch(hydamo.branches, snap_method='intersecting')
@@ -198,7 +191,7 @@ achtergrond = plt.imread(fn_background)
 ax.imshow(achtergrond, extent=(95032.2496803394606104,145054.9318180521368049,423138.1493090987205505,501148.8388533919351175), interpolation='lanczos')
 
 fm_data.branches.plot(ax=ax, label='Channel')
-# hydamo.crosssections.plot(ax=ax, color='C3', label='Cross section')
+fm_data.crosssections.plot(ax=ax, color='C3', label='Cross section')
 # hydamo.culverts.centroid.plot(ax=ax, color='darkgreen', label='Culvert', markersize=20, zorder=10)
 # hydamo.weirs.centroid.plot(ax=ax, color='C1', label='Weir', markersize=25, zorder=10)
 # hydamo.bridges.plot(ax=ax,color='red',label='Bridge',markersize=20,zorder=10)
@@ -245,6 +238,17 @@ dfmmodel = DFlowFMModel()
 dfmmodel.network.set_branches(fm_data.branches)
 dfmmodel.network.generate_1dnetwork(one_d_mesh_distance=float(parameters['grid1dresolution']), seperate_structures=True)
 
+# Add cross-sections
+for _, css in fm_data.crosssections.iterrows():
+    # Add crosssection definition
+    cssname = dfmmodel.crosssections.add_rectangle_definition(
+        height=float(css['depth']),
+        width=float(css['width']),
+        closed=False,
+        roughnesstype=parameters['roughnesstype'],
+        roughnessvalue=float(parameters['roughness1d']))
+    # Add crosssection location
+    dfmmodel.crosssections.add_crosssection_location(branchid=css['branch_id'], chainage=css['branch_offset'], definition=cssname, shift=-float(css['depth']))
 
 # If there are still missing cross sections left, add a default one. To do so add a cross section definition, and assign it with a vertical offset (shift).
 
