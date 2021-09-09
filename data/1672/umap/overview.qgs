@@ -1,5 +1,5 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis saveDateTime="2021-09-09T06:44:37" projectname="" saveUser="ottevan" saveUserFull="Willem Ottevanger" version="3.18.1-Zürich">
+<qgis saveDateTime="2021-09-09T10:38:00" projectname="" saveUser="ottevan" saveUserFull="Willem Ottevanger" version="3.18.1-Zürich">
   <homePath path=""/>
   <title></title>
   <autotransaction active="0"/>
@@ -20,7 +20,7 @@
   </projectCrs>
   <layer-tree-group>
     <customproperties/>
-    <layer-tree-layer source="./crosssection.shp" legend_exp="" checked="Qt::Checked" name="crosssection" expanded="1" id="crosssection_7d69793f_5e52_4394_ab4a_a55dbc05c7db" legend_split_behavior="0" patch_size="-1,-1" providerKey="ogr">
+    <layer-tree-layer source="./crosssections.geojson|layername=crosssections" legend_exp="" checked="Qt::Checked" name="crosssections" expanded="1" id="crosssections_7a132992_caa8_461a_a144_6cac47e0d920" legend_split_behavior="0" patch_size="-1,-1" providerKey="ogr">
       <customproperties/>
     </layer-tree-layer>
     <layer-tree-layer source="./locations.geojson" legend_exp="" checked="Qt::Checked" name="locations" expanded="1" id="locations_56ca8bef_e798_4684_a2e3_255e630d2f96" legend_split_behavior="0" patch_size="-1,-1" providerKey="ogr">
@@ -40,14 +40,14 @@
       <item>waterways_3f618673_835a_4d10_91b0_44f8d0da18a0</item>
       <item>locations_56ca8bef_e798_4684_a2e3_255e630d2f96</item>
       <item>Esri_Imagery_deb2442a_09f2_4286_80fc_6022af929be2</item>
-      <item>crosssection_7d69793f_5e52_4394_ab4a_a55dbc05c7db</item>
+      <item>crosssections_7a132992_caa8_461a_a144_6cac47e0d920</item>
     </custom-order>
   </layer-tree-group>
   <snapping-settings mode="2" type="1" unit="1" self-snapping="0" intersection-snapping="0" enabled="0" tolerance="12" minScale="0" maxScale="0" scaleDependencyMode="0">
     <individual-layer-settings>
       <layer-setting type="1" enabled="0" tolerance="12" minScale="0" maxScale="0" units="1" id="land_5b228922_a761_4769_8fd5_fe21849c0869"/>
       <layer-setting type="1" enabled="0" tolerance="12" minScale="0" maxScale="0" units="1" id="waterways_3f618673_835a_4d10_91b0_44f8d0da18a0"/>
-      <layer-setting type="1" enabled="0" tolerance="12" minScale="0" maxScale="0" units="1" id="crosssection_7d69793f_5e52_4394_ab4a_a55dbc05c7db"/>
+      <layer-setting type="1" enabled="0" tolerance="12" minScale="0" maxScale="0" units="1" id="crosssections_7a132992_caa8_461a_a144_6cac47e0d920"/>
       <layer-setting type="1" enabled="0" tolerance="12" minScale="0" maxScale="0" units="1" id="locations_56ca8bef_e798_4684_a2e3_255e630d2f96"/>
     </individual-layer-settings>
   </snapping-settings>
@@ -56,10 +56,10 @@
   <mapcanvas name="theMapCanvas" annotationsVisible="1">
     <units>degrees</units>
     <extent>
-      <xmin>4.73329698493056128</xmin>
-      <ymin>51.79244004109447985</ymin>
-      <xmax>5.12514858493044301</xmax>
-      <ymax>51.98491221734973067</ymax>
+      <xmin>4.8731801404962054</xmin>
+      <ymin>51.89609423041366654</ymin>
+      <xmax>5.06910594049614627</xmax>
+      <ymax>51.99233031854129194</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -80,9 +80,9 @@
   </mapcanvas>
   <projectModels/>
   <legend updateDrawingOrder="true">
-    <legendlayer open="true" checked="Qt::Checked" name="crosssection" showFeatureCount="0" drawingOrder="-1">
+    <legendlayer open="true" checked="Qt::Checked" name="crosssections" showFeatureCount="0" drawingOrder="-1">
       <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" visible="1" layerid="crosssection_7d69793f_5e52_4394_ab4a_a55dbc05c7db"/>
+        <legendlayerfile isInOverview="0" visible="1" layerid="crosssections_7a132992_caa8_461a_a144_6cac47e0d920"/>
       </filegroup>
     </legendlayer>
     <legendlayer open="true" checked="Qt::Checked" name="locations" showFeatureCount="0" drawingOrder="-1">
@@ -278,19 +278,19 @@
       </pipe>
       <blendMode>0</blendMode>
     </maplayer>
-    <maplayer refreshOnNotifyEnabled="0" refreshOnNotifyMessage="" styleCategories="AllStyleCategories" autoRefreshEnabled="0" geometry="Point" readOnly="0" hasScaleBasedVisibilityFlag="0" maxScale="0" simplifyAlgorithm="0" simplifyDrawingTol="1" minScale="100000000" labelsEnabled="0" simplifyMaxScale="1" autoRefreshTime="0" simplifyDrawingHints="0" simplifyLocal="1" wkbType="Point" type="vector">
+    <maplayer refreshOnNotifyEnabled="0" refreshOnNotifyMessage="" styleCategories="AllStyleCategories" autoRefreshEnabled="0" geometry="Point" readOnly="0" hasScaleBasedVisibilityFlag="0" maxScale="0" simplifyAlgorithm="0" simplifyDrawingTol="1" minScale="100000000" labelsEnabled="0" simplifyMaxScale="1" autoRefreshTime="0" simplifyDrawingHints="1" simplifyLocal="1" wkbType="Point" type="vector">
       <extent>
-        <xmin>4.92850772726626829</xmin>
-        <ymin>51.88613370197148811</ymin>
-        <xmax>5.17194513651193688</xmax>
-        <ymax>51.96355855683766123</ymax>
+        <xmin>4.93091111552660877</xmin>
+        <ymin>51.88466386121725549</ymin>
+        <xmax>5.17489474937689664</xmax>
+        <ymax>51.96117503129015347</ymax>
       </extent>
-      <id>crosssection_7d69793f_5e52_4394_ab4a_a55dbc05c7db</id>
-      <datasource>./crosssection.shp</datasource>
+      <id>crosssections_7a132992_caa8_461a_a144_6cac47e0d920</id>
+      <datasource>./crosssections.geojson|layername=crosssections</datasource>
       <keywordList>
         <value></value>
       </keywordList>
-      <layername>crosssection</layername>
+      <layername>crosssections</layername>
       <srs>
         <spatialrefsys>
           <wkt>GEOGCRS["WGS 84",DATUM["World Geodetic System 1984",ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,2],AXIS["geodetic latitude (Lat)",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],USAGE[SCOPE["unknown"],AREA["World"],BBOX[-90,-180,90,180]],ID["EPSG",4326]]</wkt>
@@ -311,15 +311,6 @@
         <type>dataset</type>
         <title></title>
         <abstract></abstract>
-        <contact>
-          <name></name>
-          <organization></organization>
-          <position></position>
-          <voice></voice>
-          <fax></fax>
-          <email></email>
-          <role></role>
-        </contact>
         <links/>
         <fees></fees>
         <encoding></encoding>
@@ -333,18 +324,10 @@
             <description></description>
             <projectionacronym></projectionacronym>
             <ellipsoidacronym></ellipsoidacronym>
-            <geographicflag>true</geographicflag>
+            <geographicflag>false</geographicflag>
           </spatialrefsys>
         </crs>
-        <extent>
-          <spatial minz="0" maxx="0" crs="" maxy="0" maxz="0" miny="0" dimensions="2" minx="0"/>
-          <temporal>
-            <period>
-              <start></start>
-              <end></end>
-            </period>
-          </temporal>
-        </extent>
+        <extent/>
       </resourceMetadata>
       <provider encoding="UTF-8">ogr</provider>
       <vectorjoins/>
@@ -452,115 +435,38 @@
         <sizescale/>
       </renderer-v2>
       <customproperties>
-        <property key="dualview/previewExpressions" value="&quot;id&quot;"/>
-        <property key="embeddedWidgets/count" value="0"/>
-        <property key="variableNames"/>
-        <property key="variableValues"/>
+        <property key="dualview/previewExpressions">
+          <value>"comment"</value>
+        </property>
       </customproperties>
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
       <layerOpacity>1</layerOpacity>
-      <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
-        <DiagramCategory backgroundAlpha="255" labelPlacementMethod="XHeight" enabled="0" diagramOrientation="Up" minScaleDenominator="0" opacity="1" maxScaleDenominator="1e+08" spacing="5" rotationOffset="270" showAxis="1" backgroundColor="#ffffff" height="15" lineSizeType="MM" spacingUnit="MM" width="15" barWidth="5" minimumSize="0" scaleBasedVisibility="0" sizeScale="3x:0,0,0,0,0,0" lineSizeScale="3x:0,0,0,0,0,0" scaleDependency="Area" penWidth="0" direction="0" spacingUnitScale="3x:0,0,0,0,0,0" sizeType="MM" penAlpha="255" penColor="#000000">
-          <fontProperties style="" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0"/>
-          <axisSymbol>
-            <symbol type="line" name="" clip_to_extent="1" force_rhr="0" alpha="1">
-              <data_defined_properties>
-                <Option type="Map">
-                  <Option type="QString" name="name" value=""/>
-                  <Option name="properties"/>
-                  <Option type="QString" name="type" value="collection"/>
-                </Option>
-              </data_defined_properties>
-              <layer locked="0" enabled="1" class="SimpleLine" pass="0">
-                <Option type="Map">
-                  <Option type="QString" name="align_dash_pattern" value="0"/>
-                  <Option type="QString" name="capstyle" value="square"/>
-                  <Option type="QString" name="customdash" value="5;2"/>
-                  <Option type="QString" name="customdash_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                  <Option type="QString" name="customdash_unit" value="MM"/>
-                  <Option type="QString" name="dash_pattern_offset" value="0"/>
-                  <Option type="QString" name="dash_pattern_offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                  <Option type="QString" name="dash_pattern_offset_unit" value="MM"/>
-                  <Option type="QString" name="draw_inside_polygon" value="0"/>
-                  <Option type="QString" name="joinstyle" value="bevel"/>
-                  <Option type="QString" name="line_color" value="35,35,35,255"/>
-                  <Option type="QString" name="line_style" value="solid"/>
-                  <Option type="QString" name="line_width" value="0.26"/>
-                  <Option type="QString" name="line_width_unit" value="MM"/>
-                  <Option type="QString" name="offset" value="0"/>
-                  <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                  <Option type="QString" name="offset_unit" value="MM"/>
-                  <Option type="QString" name="ring_filter" value="0"/>
-                  <Option type="QString" name="tweak_dash_pattern_on_corners" value="0"/>
-                  <Option type="QString" name="use_custom_dash" value="0"/>
-                  <Option type="QString" name="width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                </Option>
-                <prop v="0" k="align_dash_pattern"/>
-                <prop v="square" k="capstyle"/>
-                <prop v="5;2" k="customdash"/>
-                <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-                <prop v="MM" k="customdash_unit"/>
-                <prop v="0" k="dash_pattern_offset"/>
-                <prop v="3x:0,0,0,0,0,0" k="dash_pattern_offset_map_unit_scale"/>
-                <prop v="MM" k="dash_pattern_offset_unit"/>
-                <prop v="0" k="draw_inside_polygon"/>
-                <prop v="bevel" k="joinstyle"/>
-                <prop v="35,35,35,255" k="line_color"/>
-                <prop v="solid" k="line_style"/>
-                <prop v="0.26" k="line_width"/>
-                <prop v="MM" k="line_width_unit"/>
-                <prop v="0" k="offset"/>
-                <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-                <prop v="MM" k="offset_unit"/>
-                <prop v="0" k="ring_filter"/>
-                <prop v="0" k="tweak_dash_pattern_on_corners"/>
-                <prop v="0" k="use_custom_dash"/>
-                <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
-                <data_defined_properties>
-                  <Option type="Map">
-                    <Option type="QString" name="name" value=""/>
-                    <Option name="properties"/>
-                    <Option type="QString" name="type" value="collection"/>
-                  </Option>
-                </data_defined_properties>
-              </layer>
-            </symbol>
-          </axisSymbol>
-        </DiagramCategory>
-      </SingleCategoryDiagramRenderer>
-      <DiagramLayerSettings showAll="1" priority="0" zIndex="0" dist="0" linePlacementFlags="18" obstacle="0" placement="0">
-        <properties>
-          <Option type="Map">
-            <Option type="QString" name="name" value=""/>
-            <Option name="properties"/>
-            <Option type="QString" name="type" value="collection"/>
-          </Option>
-        </properties>
-      </DiagramLayerSettings>
       <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
-        <activeChecks/>
+        <activeChecks type="StringList">
+          <Option type="QString" value=""/>
+        </activeChecks>
         <checkConfiguration/>
       </geometryOptions>
       <legend type="default-vector"/>
       <referencedLayers/>
       <fieldConfiguration>
         <field name="id" configurationFlags="None">
-          <editWidget type="TextEdit">
+          <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
         <field name="width" configurationFlags="None">
-          <editWidget type="TextEdit">
+          <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
         <field name="depth" configurationFlags="None">
-          <editWidget type="TextEdit">
+          <editWidget type="">
             <config>
               <Option/>
             </config>
@@ -602,13 +508,13 @@
       <attributeactions>
         <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
       </attributeactions>
-      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="&quot;ruwheid&quot;" sortOrder="0">
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
         <columns>
           <column type="field" width="-1" name="id" hidden="0"/>
-          <column type="actions" width="-1" hidden="1"/>
           <column type="field" width="-1" name="width" hidden="0"/>
           <column type="field" width="-1" name="depth" hidden="0"/>
           <column type="field" width="-1" name="comment" hidden="0"/>
+          <column type="actions" width="-1" hidden="1"/>
         </columns>
       </attributetableconfig>
       <conditionalstyles>
@@ -620,38 +526,14 @@
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
       <editforminitfilepath></editforminitfilepath>
-      <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
-"""
-QGIS forms can have a Python function that is called when the form is
-opened.
-
-Use this function to add extra logic to your forms.
-
-Enter the name of the function in the "Python Init function"
-field.
-An example follows:
-"""
-from qgis.PyQt.QtWidgets import QWidget
-
-def my_form_open(dialog, layer, feature):
-	geom = feature.geometry()
-	control = dialog.findChild(QWidget, "MyLineEdit")
-]]></editforminitcode>
+      <editforminitcode><![CDATA[]]></editforminitcode>
       <featformsuppress>0</featformsuppress>
       <editorlayout>generatedlayout</editorlayout>
-      <editable>
-        <field editable="1" name="depth"/>
-        <field editable="1" name="id"/>
-        <field editable="1" name="width"/>
-      </editable>
-      <labelOnTop>
-        <field name="depth" labelOnTop="0"/>
-        <field name="id" labelOnTop="0"/>
-        <field name="width" labelOnTop="0"/>
-      </labelOnTop>
+      <editable/>
+      <labelOnTop/>
       <dataDefinedFieldProperties/>
       <widgets/>
-      <previewExpression>"id"</previewExpression>
+      <previewExpression>"comment"</previewExpression>
       <mapTip></mapTip>
     </maplayer>
     <maplayer refreshOnNotifyEnabled="0" refreshOnNotifyMessage="" styleCategories="AllStyleCategories" autoRefreshEnabled="0" geometry="Polygon" readOnly="0" hasScaleBasedVisibilityFlag="0" maxScale="0" simplifyAlgorithm="0" simplifyDrawingTol="1" minScale="100000000" labelsEnabled="0" simplifyMaxScale="1" autoRefreshTime="0" simplifyDrawingHints="1" simplifyLocal="1" wkbType="Polygon" type="vector">
@@ -1925,7 +1807,7 @@ def my_form_open(dialog, layer, feature):
     <layer id="waterways_3f618673_835a_4d10_91b0_44f8d0da18a0"/>
     <layer id="locations_56ca8bef_e798_4684_a2e3_255e630d2f96"/>
     <layer id="Esri_Imagery_deb2442a_09f2_4286_80fc_6022af929be2"/>
-    <layer id="crosssection_7d69793f_5e52_4394_ab4a_a55dbc05c7db"/>
+    <layer id="crosssections_7a132992_caa8_461a_a144_6cac47e0d920"/>
   </layerorder>
   <properties>
     <CopyrightLabel>
@@ -2139,7 +2021,7 @@ def my_form_open(dialog, layer, feature):
   <Bookmarks/>
   <ProjectViewSettings UseProjectScales="0">
     <Scales/>
-    <DefaultViewExtent xmin="4.73329698493056128" ymin="51.7917460902926976" xmax="5.12514858493044301" ymax="51.98560616815151292">
+    <DefaultViewExtent xmin="4.8731801404962054" ymin="51.89574725501277186" xmax="5.06910594049614627" ymax="51.99267729394218662">
       <spatialrefsys>
         <wkt>GEOGCRS["WGS 84",DATUM["World Geodetic System 1984",ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,2],AXIS["geodetic latitude (Lat)",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],USAGE[SCOPE["unknown"],AREA["World"],BBOX[-90,-180,90,180]],ID["EPSG",4326]]</wkt>
         <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
