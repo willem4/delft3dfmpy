@@ -7,7 +7,11 @@ import pandas as pd
 from delft3dfmpy.datamodels.common import ExtendedDataFrame, ExtendedGeoDataFrame
 from shapely.geometry import LineString, Point, Polygon
 
+<<<<<<< HEAD:delft3dfmpy/datamodels/tdi2dfm.py
 class TDi2FM:
+=======
+class ThreeDI2FM:
+>>>>>>> upstream/master:delft3dfmpy/datamodels/threedi2fm.py
     """
     3Di to D-Flow FM datamodel
     """

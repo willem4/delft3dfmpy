@@ -6,14 +6,14 @@ import os
 
 __author__ = """Guus Rongen"""
 __email__ = 'rongen@hkv.nl'
-__version__ = '1.1.3' + ' (' + os.path.dirname(os.path.abspath(__file__)) + ')'
+__version__ = '1.2.0'
 
 from delft3dfmpy.core.dfm import DFlowFMModel
 from delft3dfmpy.core.drr import DFlowRRModel
 from delft3dfmpy.core.mesh2d import Rectangular
 from delft3dfmpy.datamodels.hydamo import HyDAMO
-from delft3dfmpy.datamodels.tdi2dfm import TDi2FM
 from delft3dfmpy.datamodels.minimal2dfm import Minimal2FM
+from delft3dfmpy.datamodels.threedi2fm import ThreeDI2FM
 from delft3dfmpy.datamodels.osm import OSM
 from delft3dfmpy.io.dflowfmwriter import DFlowFMWriter
 from delft3dfmpy.io.dflowrrwriter import DFlowRRWriter

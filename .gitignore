@@ -29,3 +29,5 @@ examples/input.png
 examples/mesh.png
 modellen/
 notebooks/.ipynb_checkpoints/
+.vscode/settings.json
+dist/*
