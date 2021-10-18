@@ -1,38 +1,8 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "_umap_options": {
-          "color": "DarkRed",
-          "iconClass": "Drop",
-          "labelInteractive": true
-        },
-        "name": " Dalemsluis",
-        "description": "Dalemsluis - inlaatpunt bij de merwerde"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.026503,
-          51.854018
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Opmerkingen/Vragen?",
-        "description": "Laat deze [[https://forms.gle/mgdxCxxUb4nXwiJF9|hier]] achter"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.016289,
-          51.995874
-        ]
-      }
-    }
-  ]
+"type": "FeatureCollection",
+"name": "locations",
+"features": [
+{ "type": "Feature", "properties": { "_umap_options": { "color": "DarkRed", "iconClass": "Drop", "labelInteractive": true }, "name": " Dalemsluis", "description": "Dalemsluis - inlaatpunt bij de merwerde" }, "geometry": { "type": "Point", "coordinates": [ 5.026503, 51.854018 ] } },
+{ "type": "Feature", "properties": { "_umap_options": { "iconClass": "Ball" }, "name": "Opmerkingen\/Vragen?", "description": "Laat deze [[https:\/\/forms.gle\/mgdxCxxUb4nXwiJF9|hier]] achter" }, "geometry": { "type": "Point", "coordinates": [ 5.016289, 51.995874 ] } }
+]
 }
