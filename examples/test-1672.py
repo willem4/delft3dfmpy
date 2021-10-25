@@ -12,7 +12,6 @@ from delft3dfmpy.datamodels.common import ExtendedGeoDataFrame
 from delft3dfmpy.core.logging import initialize_logger
 
 import configparser, json
-from helper_functions import get_layer_from_wfs
 
 # For reading SOBEK results as boundary conditions
 # hkvsobekpy requires the modules fire and tqdm, install these (conda install fire tqdm)
@@ -27,7 +26,7 @@ import pandas as pd
 # Geometries
 from shapely.geometry import Polygon, LineString
 
-# Helper function 
+# Helper functions 
 
 def translate_data(config, topic):
     """Translate data to correct format with required columns and 
@@ -53,6 +52,31 @@ def translate_data(config, topic):
     gdf.to_file(fn)
     return fn 
 
+def get_layer_from_wfs(url,layername):
+    # Get data from WFS
+    # -----------------
+    # Load dependencies
+    import geopandas as gpd
+    from requests import Request
+    from owslib.wfs import WebFeatureService
+
+    # Initialize
+    wfs = WebFeatureService(url=url)
+
+    # Fetch the last available layer (as an example)
+    lstlayers = list(wfs.contents)
+    layer = [v for v in lstlayers if layername in v]    
+    
+    # Specify the parameters for fetching the data
+    params = dict(service='WFS', version="1.0.0", request='GetFeature',
+          typeName=layer, outputFormat='json')
+    
+    # Parse the URL with parameters
+    q = Request('GET', url, params=params).prepare().url
+    
+    # Read data from URL
+    data = gpd.read_file(q)    
+    return data
 
 
 # path to dflowfm for refining the mesh 
