@@ -12,6 +12,7 @@ from delft3dfmpy.datamodels.common import ExtendedGeoDataFrame
 from delft3dfmpy.core.logging import initialize_logger
 
 import configparser, json
+from helper_functions import get_layer_from_wfs
 
 # For reading SOBEK results as boundary conditions
 # hkvsobekpy requires the modules fire and tqdm, install these (conda install fire tqdm)
@@ -81,8 +82,17 @@ logger.info(f'Read config from {fn_ini}')
 config = configparser.ConfigParser(inline_comment_prefixes=[";", "#"])
 config.read(fn_ini)
 
+# translate wfs to local geojson for offline reproducability
+wfs_path = config.get('input', 'wfsPath')
+wfs_layers = config.get('input', 'wfsLayers').split(',')
+
 # path to the package containing the dummy-data
 data_path = config.get('input', 'DataPath')
+
+for wfs_layer in wfs_layers: 
+    data = get_layer_from_wfs(wfs_path, wfs_layer)
+    data_file = os.path.join(data_path, f'{wfs_layer}.geojson')
+    data.to_file(data_file, driver='GeoJSON')  
 
 # Get parameters
 parameters = config._sections['parameters']

@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::28992" } },
+"features": [
+{ "type": "Feature", "properties": { "id": "crosssection.1", "width": 6, "depth": 2, "description": null, "idwaterway": 2 }, "geometry": { "type": "Point", "coordinates": [ 121918.4085, 439264.9324 ] } }
+]
+}
