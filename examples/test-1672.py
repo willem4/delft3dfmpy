@@ -106,7 +106,7 @@ logger.info(f'Read config from {fn_ini}')
 config = configparser.ConfigParser(inline_comment_prefixes=[";", "#"])
 config.read(fn_ini)
 
-# translate wfs to local geojson for offline reproducability
+# Translate wfs to local geojson for offline reproducability
 wfs_path = config.get('input', 'wfsPath')
 wfs_layers = config.get('input', 'wfsLayers').split(',')
 
@@ -210,7 +210,8 @@ fm_data.crosssections.dropna(axis=0, inplace=True, subset=['branch_offset'])
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
 
-fn_background = os.path.join(data_path, 'gis', 'ohw-06-656x1024.jpg')
+# fn_background = os.path.join(data_path, 'gis', 'ohw-06-656x1024.jpg')
+fn_background = config.get('input', 'backgroundFile')
 plt.rcParams['axes.edgecolor'] = 'w'
 
 fig, ax = plt.subplots(figsize=(10, 10))
